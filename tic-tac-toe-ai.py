@@ -67,9 +67,9 @@ def minimax(board, depth, alpha, beta, maximizing_player):
     if is_ended:
         # if depth is greater give more points
         if winner == "X":
-            return 100, -1
+            return 100 * depth, -1
         elif winner == "O":
-            return -100, -1
+            return -100 * depth, -1
         else:
             return 0, -1
 
