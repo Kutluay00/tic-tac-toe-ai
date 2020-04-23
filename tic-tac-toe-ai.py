@@ -36,10 +36,11 @@ def is_win(board):
 def is_playable(i, j):
     return board_state_arr[i][j] == "EMPTY"
 
+
 # @param i = x-axis of board_state
 # @param i = y-axis of board_state
 # @param str = X or O string
-def play(i , j, str):
+def play(i, j, str):
     if is_playable(i, j):
         board_state_arr[i][j] = str
     else:
@@ -115,9 +116,8 @@ def minimax(board, depth, alpha, beta, maximizing_player):
 
 
 if __name__ == "__main__":
-    # board_state_input = str(sys.argv[1])
-    board_state_input = "X O EMPTY X EMPTY EMPTY EMPTY EMPTY EMPTY"
+    board_state_input = str(sys.argv[1])
     board_state_arr = create_2d_array(board_state_input)
     depth = 4
-    final_board, move = minimax(board_state_arr, depth, -math.inf, math.inf, False)
+    final_board, move = minimax(board_state_arr, depth, -math.inf, math.inf, sys.argv[2] == "X")
     print(move % 3, move // 3)
